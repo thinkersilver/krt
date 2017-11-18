@@ -1,5 +1,5 @@
 
-![](images/krt_icon.png) 
+![](images/krt_graph.png) 
 
 
 ## Quick Start 
