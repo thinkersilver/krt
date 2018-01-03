@@ -20,19 +20,22 @@ from krt.renderers import dot_render, display_graph
 
 g = Graph.from_tuples([("a","b"),("c","d"),("c","d"),("c","b"),("d","e")])
 dot_render(g)
+
 ```
 
 And that's it. You'll get the following render
 
-![](/images/example_1.png)
+ ![](/images/example_1.png)
 
 ### Another Quick Example 
 
 Here's a sentence from a NYT article about painist. 
 
 ```
-His speech caused a commotion, as audience members called out, both attacking and defending him.
+ His speech caused a commotion, as audience members called out, both attacking and defending him.
+
 ```
+
  ![](/images/example_2.png)
 
 First step is to parse the sentence. 
@@ -42,6 +45,7 @@ First step is to parse the sentence.
 import spacy
 nlp = spacy.load("en")
 s =  nlp(u"His speech caused a commotion, as audience members called out, both attacking and defending him.")
+
 ```
 
 Then create your list of tuples.  In this example I used my parser of choice (SPACY) and removed punctuation. 
