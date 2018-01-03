@@ -1,10 +1,4 @@
-name: krt_getting_started
-title: Getting Started
-date: 2018-01-03 14:48:49.727951
-package: krt_getting_started
-assets: config.json,bin,setup.py,krt_getting_started
----
-## KRT - Knowledge Representation Tool
+# KRT - Knowledge Representation Tool
 
 ![](/images/krt_graph.png)
 
