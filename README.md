@@ -1,33 +1,72 @@
+name: krt_getting_started
+title: Getting Started
+date: 2018-01-03 14:48:49.727951
+package: krt_getting_started
+assets: config.json,bin,setup.py,krt_getting_started
+---
+## KRT - Knowledge Representation Tool
 
-## Knowledge Representation Toolkit  
+![](/images/krt_graph.png)
 
-![](images/krt_graph.png) 
-
+KRT is a tool. A small light library to represents knowledge through graphs. It's goal is to be quick, frictionless way of representing knowledge. It is not prescriptive but a tool that gives the author the ability to describe, represent and evolve their current mental model of a domain. 
 
 ## Quick Start 
 
+All you need to get started is a list of tuples representing your edges. 
 
-```
+``` python 
 from krt import Graph
 from krt.renderers import dot_render, display_graph
 
-
-
 g = Graph.from_tuples([("a","b"),("c","d"),("c","d"),("c","b"),("d","e")])
+dot_render(g)
+```
+
+And that's it. You'll get the following render
+
+![](/images/example_1.png)
+
+### Another Quick Example 
+
+Here's a sentence from a NYT article about painist. 
+
+```
+His speech caused a commotion, as audience members called out, both attacking and defending him.
+```
+ ![](/images/example_2.png)
+
+First step is to parse the sentence. 
+
+```
+
+import spacy
+nlp = spacy.load("en")
+s =  nlp(u"His speech caused a commotion, as audience members called out, both attacking and defending him.")
+```
+
+Then create your list of tuples.  In this example I used my parser of choice (SPACY) and removed punctuation. 
+
+```
+g  = Graph.from_tuples ( [ (t.head, t) for t in s  if t.pos_ not in [u'PUNCT']])
 dot_render(g)
 
 ```
-![](images/graph_example_1.png) 
 
-```
+### Example 1 : New York Times  
 
-from random import randint 
+![](/images/krt_nytimes_600.png)  
 
-edges = [ (chr(n),chr(randint(ord("a"),ord("z"))))  for n  in xrange(ord("a"),ord("z")) ]
 
-g = Graph.from_tuples(edges) 
-dot_render(g) 
+### Example 2 : Hadoop Code Base 
 
-```
+TBD 
 
-![](images/graph_example_2.png) 
+
+### After thoughts 
+
+Domain Representation Tool. (DRT). KRT is a cartography for the mind. At least that's what it attempts to be. 
+
+
+* descriptive ( vs prescriptive) 
+* exploratory ( vs ? ) 
+* 
