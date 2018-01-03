@@ -1,4 +1,10 @@
-# KRT - Knowledge Representation Tool
+name: krt_getting_started
+title: Getting Started
+date: 2018-01-03 14:49:24.087548
+package: krt_getting_started
+assets: config.json,bin,setup.py,krt_getting_started
+---
+## KRT - Knowledge Representation Tool
 
 ![](/images/krt_graph.png)
 
@@ -14,12 +20,11 @@ from krt.renderers import dot_render, display_graph
 
 g = Graph.from_tuples([("a","b"),("c","d"),("c","d"),("c","b"),("d","e")])
 dot_render(g)
-
 ```
 
 And that's it. You'll get the following render
 
- ![](/images/example_1.png)
+![](/images/example_1.png)
 
 ### Another Quick Example 
 
@@ -28,43 +33,46 @@ Here's a sentence from a NYT article about painist.
 ```
  His speech caused a commotion, as audience members called out, both attacking and defending him.
 
-```
 
+```
  ![](/images/example_2.png)
 
 First step is to parse the sentence. 
 
 ```
 
-import spacy
-nlp = spacy.load("en")
-s =  nlp(u"His speech caused a commotion, as audience members called out, both attacking and defending him.")
+ import spacy
+ nlp = spacy.load("en")
+ s =  nlp(u"His speech caused a commotion, as audience members called out, both attacking and defending him.")
 
 ```
 
 Then create your list of tuples.  In this example I used my parser of choice (SPACY) and removed punctuation. 
 
+
 ```
 g  = Graph.from_tuples ( [ (t.head, t) for t in s  if t.pos_ not in [u'PUNCT']])
 dot_render(g)
 
+
 ```
+
 
 ### Example 1 : New York Times  
 
-![](/images/krt_nytimes_600.png)  
+ ![](/images/krt_nytimes_600.png)  
 
 
 ### Example 2 : Hadoop Code Base 
 
-TBD 
+ TBD 
 
 
 ### After thoughts 
 
-Domain Representation Tool. (DRT). KRT is a cartography for the mind. At least that's what it attempts to be. 
+ Domain Representation Tool. (DRT). KRT is a cartography for the mind. At least that's what it attempts to be. 
 
 
-* descriptive ( vs prescriptive) 
-* exploratory ( vs ? ) 
-* 
+ * descriptive ( vs prescriptive) 
+ * exploratory ( vs ? ) 
+ * 
