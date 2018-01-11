@@ -1,6 +1,6 @@
 ## KRT - Knowledge Representation Tool
 
-![](/images/knewt_600.png)
+![](/images/knewt_600.jpg)
 
 KRT is a tool. A small light library to represents knowledge through graphs. It's goal is to be quick, frictionless way of representing knowledge. It is not prescriptive but a tool that gives the author the ability to describe, represent and evolve their current mental model of a domain. 
 
